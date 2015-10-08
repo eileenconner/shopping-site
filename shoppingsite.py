@@ -50,7 +50,7 @@ def show_melon(melon_id):
     Show all info about a melon. Also, provide a button to buy that melon.
     """
 
-    melon = melons.get_by_id(59)
+    melon = melons.get_by_id(melon_id)
     print melon
     return render_template("melon_details.html",
                            display_melon=melon)
@@ -81,6 +81,19 @@ def add_to_cart(id):
     When a melon is added to the cart, redirect browser to the shopping cart
     page and display a confirmation message: 'Successfully added to cart'.
     """
+
+    # when function is called:
+    # if loop: does session contain a cart?
+    if session['cart']:
+        session['cart'].append(id)
+    else:
+        session['cart'] = [id]
+    #   if ncart == false:
+            # make new cart
+    # append melon id to cart
+    # flash message of sucessful add
+    # call shopping cart route
+
 
     # TODO: Finish shopping cart functionality
 
